@@ -21,16 +21,22 @@ import javax.servlet.http.HttpServletResponse;
 public class HelloServlet extends HttpServlet {
 
     @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp); //To change body of generated methods, choose Tools | Templates.
+    }
+  
+    
+
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=utf-8");
         try(PrintWriter out=resp.getWriter()){
-            //輸出
-            // <html>
-            // <body>
-            //  <h1>Hello!</h1>
-            // </body>
-            // </html>
+            out.println("<html>");
+            out.println("<head>");
+            out.println(req.getRequestURI());
+            out.println("</head>");
+            out.println("<body>");
         }
     }
-    
+   
 }
